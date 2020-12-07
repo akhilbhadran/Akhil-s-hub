@@ -1,0 +1,201 @@
+package ak;
+
+
+import ak.StudentList;
+import java.util.Scanner;
+import java.util.Arrays;
+
+class StudentList{
+
+	int Age;
+	String Name ;
+	int Id;
+	char Gender;
+	int N ;
+    int[] Marks = new int[4];
+	Scanner scan = new Scanner(System.in); 
+	double total;
+void inputDetails(){
+ 
+       
+          System.out.print("Enter Name : ");
+          Name = scan.next();
+          System.out.print("Enter Id   : ");
+          Id = scan.nextInt();
+          System.out.print("GenderM/F/O: ");
+          
+          Gender = scan.next().charAt(0);
+          System.out.println("Enter marks");
+          System.out.print("Maths      : ");
+          Marks[0]=scan.nextInt();
+          System.out.print("Physis     : ");
+          Marks[1]=scan.nextInt();
+          System.out.print("chemistry  : ");
+          Marks[2]=scan.nextInt();
+          System.out.print("Biology    : ");
+          Marks[3]=scan.nextInt();
+          System.out.println("     ");
+          System.out.println("");       
+} 
+         
+ void displayDetails(){
+         
+          System.out.println("Name : "+Name);
+          System.out.println("Name : "+Id);
+          System.out.println("Name : "+Gender);
+          System.out.println("your marks" );
+          System.out.println("Name : "+Marks[0]);
+          System.out.println("Name : "+Marks[1]);
+          System.out.println("Name : "+Marks[2]);
+          System.out.println("Name : "+Marks[3]);
+          total = (Marks[0]+Marks[1]+Marks[2]+Marks[3])/4;
+          
+          System.out.println("Total percentage  is "+total+"%");
+  } 
+  void StudentList(){
+          
+	      Name ="Null" ;
+	      Id = -1;
+	      Gender ='t';
+	      N = 1;
+          total=1;
+    
+  }    
+            
+        
+	
+	}
+
+public class Main {
+  static  StudentList[] student = new                      
+  StudentList[100];
+     
+  static  Scanner Sc = new        
+  Scanner(System.in);
+  
+static  int n;  
+
+  static void findStudent (int id){
+    
+    for(int i=0;i<n;i++){
+      
+      if(student[i].Id==id){
+      
+      student[i].displayDetails();
+        
+      }
+    }
+  }
+  static void displayAll(){
+  
+    System.out.println("        Sl\t\t\tName\t\t\t\ttotal %");
+    for(int i =0;i<n;i++){
+      System.out.println("        "+(i+1)+".\t\t\t\t"+(student[i].Name)+"\t\t"+(student[i].total));
+    }
+  }
+  
+  static void sortDisplay(){
+    StudentList t = new StudentList();
+    for(int i= 0;i<n-1;i++){
+      for(int j= 0;j<n-1;j++){
+        if(student[j].total<student[j+1].total){
+          t=student[j];
+          student[j]=student[j+1];
+          student[j+1]=t;
+          
+          
+        }
+      }
+    }
+  }
+     
+  public static void main(String[] args) {
+ 
+  
+  
+        while(true){
+        System.out.println("༻✦༺༻✧༺༻✦༺༻✦༺༻✧༺༻✦༺༻✦༺༻✧༺༻✦༺");
+       System.out.println("       ");
+           
+       
+        System.out.println("   ┍━━━━━━━✿━━━━━━━┑");
+       System.out.println("             Ⓜⓔⓝⓤ");
+       System.out.println("      1.Input details");
+       System.out.println("      2.Find student");
+       System.out.println("      3.Display all students ");
+	   System.out.println("      4.Exit or stop program");
+       System.out.println("              ");
+       System.out.println("   ┕━━━━━━━✿━━━━━━━┙ ");
+	   System.out.println("༻✦༺༻✧༺༻✦༺༻✦༺༻✧༺༻✦༺༻✦༺༻✧༺༻✦༺");
+       System.out.println("       ");
+           
+       
+            
+    int menu;  
+	
+	   System.out.print("Enter menu number :");	
+	   menu = Sc.nextInt();
+	
+
+
+
+
+	switch(menu){
+
+	case 1 : 
+	  System.out.println("How many students details do you want to enter : ");
+	  n = Sc.nextInt();
+	 
+	 System.out.println("Enter details of "+n+" students");
+	
+	  for(int i=0;i<n;i++){
+	  student[i]=new StudentList();
+	  student[i].inputDetails();
+	  
+
+}
+      System.out.println("        The entered students are  ");
+for(int j=0;j<n;j++){
+         student[j].displayDetails();   
+         System.out.println("     ");
+         System.out.println("");       
+} 
+       sortDisplay();
+
+break;
+
+
+
+    case 2 :
+          System.out.print("Enter the Id of the student : ");
+          int myid = Sc.nextInt();
+          findStudent(myid);
+          break;
+    
+    case 3:
+         
+         displayAll();
+         break;
+             
+				
+ 
+
+	case 4:
+	            
+           System.exit(0);
+break;
+
+}
+
+
+  }
+  
+  
+  
+
+}  }
+  
+  
+  
+
+
